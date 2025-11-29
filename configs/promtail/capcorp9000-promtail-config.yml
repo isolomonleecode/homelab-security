@@ -1,0 +1,53 @@
+server:
+  http_listen_port: 9080
+  grpc_listen_port: 0
+
+clients:
+  - url: http://192.168.0.19:3100/loki/api/v1/push
+
+positions:
+  filename: /tmp/positions.yaml
+
+scrape_configs:
+  # Docker container logs
+  - job_name: docker
+    docker_sd_configs:
+      - host: unix:///var/run/docker.sock
+        refresh_interval: 30s
+    relabel_configs:
+      - source_labels: ["__meta_docker_container_name"]
+        regex: '/(.*)'
+        target_label: "container"
+      - source_labels: ["__meta_docker_container_image"]
+        target_label: "image"
+      - source_labels: ["__meta_docker_container_id"]
+        target_label: "container_id"
+      - replacement: "capcorp9000"
+        target_label: "hostname"
+      - replacement: "docker"
+        target_label: "job"
+    pipeline_stages:
+      - docker: {}
+
+  # Systemd journal logs (SSH, sudo, system events)
+  - job_name: systemd-journal
+    journal:
+      max_age: 12h
+      labels:
+        job: systemd-journal
+        hostname: capcorp9000
+    relabel_configs:
+      - source_labels: ['__journal__systemd_unit']
+        target_label: 'unit'
+      - source_labels: ['__journal__hostname']
+        target_label: 'hostname'
+      - source_labels: ['__journal_syslog_identifier']
+        target_label: 'syslog_identifier'
+    pipeline_stages:
+      - match:
+          selector: '{syslog_identifier="sshd"}'
+          stages:
+            - regex:
+                expression: '(?P<event>Failed password|Accepted publickey|Connection closed)'
+            - labels:
+                event:

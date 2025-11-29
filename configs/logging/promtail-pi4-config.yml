@@ -1,0 +1,70 @@
+# Promtail configuration for Pi4 (Ubuntu) to ship Docker logs off-box.
+# Recommended: Send to Grafana Cloud Loki or a Loki on the Pi4 (not Unraid).
+
+server:
+  http_listen_port: 9080
+  grpc_listen_port: 0
+
+clients:
+  - url: http://loki:3100/loki/api/v1/push
+
+positions:
+  filename: /tmp/positions.yaml
+
+scrape_configs:
+  # Docker container logs
+  - job_name: docker
+    docker_sd_configs:
+      - host: unix:///var/run/docker.sock
+        refresh_interval: 30s
+    relabel_configs:
+      - source_labels: ["__meta_docker_container_name"]
+        regex: '/(.*)'
+        target_label: "container"
+      - source_labels: ["__meta_docker_container_image"]
+        target_label: "image"
+      - source_labels: ["__meta_docker_container_id"]
+        target_label: "container_id"
+      - replacement: "sweetrpi-desktop"
+        target_label: "hostname"
+      - replacement: "docker"
+        target_label: "job"
+    pipeline_stages:
+      - docker: {}
+
+  # Systemd journal logs (SSH, fail2ban, system logs)
+  - job_name: systemd-journal
+    journal:
+      path: /var/log/journal
+      max_age: 12h
+      labels:
+        job: systemd-journal
+        hostname: sweetrpi-desktop
+    relabel_configs:
+      - source_labels: ['__journal__systemd_unit']
+        target_label: 'unit'
+      - source_labels: ['__journal__hostname']
+        target_label: 'hostname'
+      - source_labels: ['__journal_syslog_identifier']
+        target_label: 'syslog_identifier'
+    pipeline_stages:
+      # Extract user and IP from SSH failed login attempts
+      - match:
+          selector: '{unit="ssh.service"}'
+          stages:
+            - regex:
+                expression: '.*Failed password for (?P<user>\S+) from (?P<source_ip>\S+).*'
+            - labels:
+                user:
+                source_ip:
+      # Extract banned IP from fail2ban logs
+      - match:
+          selector: '{syslog_identifier="fail2ban"}'
+          stages:
+            - regex:
+                expression: '.*Ban (?P<banned_ip>\S+).*'
+            - labels:
+                banned_ip:
+
+
+
