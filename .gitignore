@@ -9,6 +9,8 @@
 credentials.json
 secrets.yaml
 *.secret
+*CREDENTIALS*.txt
+*PASSWORDS*.txt
 
 # Scan outputs (keep reports, ignore raw data)
 *.json.raw
