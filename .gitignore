@@ -69,3 +69,9 @@ career/
 *CoverLetter.md
 *personal*.md
 .claude/
+
+# Scripts and workspace files (not for public)
+remove-personal-info.sh
+cleanup-*.sh
+start-fresh-*.sh
+*.code-workspace

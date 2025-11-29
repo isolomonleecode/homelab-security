@@ -1,8 +1,6 @@
-# Cybersecurity Portfolio - [Your Name]
+# Cybersecurity Portfolio
 
-**CompTIA A+ & Security+ Certified | Aspiring Security Analyst**
-**Houston, TX** | **[Your Phone]** | **[your.email@example.com]**
-**LinkedIn:** [your-linkedin-url]
+**CompTIA A+ & Security+ Certified**
 **GitHub:** https://github.com/isolomonleecode
 
 ---
