@@ -1,7 +1,6 @@
 version: '3.8'
 
 # Wazuh SIEM Deployment for Homelab Security Monitoring
-# Author: Latrent Childs
 # Purpose: Enterprise-grade SIEM for security event detection and incident response
 # Integration: Complements existing Grafana/Loki/Prometheus stack
 
@@ -63,7 +62,7 @@ services:
     ports:
       - "9200:9200"
     environment:
-      - "OPENSEARCH_JAVA_OPTS=-Xms1g -Xmx1g"  # Adjust based on your RAM (minimum 1GB)
+      - "OPENSEARCH_JAVA_OPTS=-Xms1g -Xmx30g"  # Adjust based on your RAM (minimum 1GB)
       - "bootstrap.memory_lock=true"
       - "discovery.type=single-node"
       - "network.host=0.0.0.0"

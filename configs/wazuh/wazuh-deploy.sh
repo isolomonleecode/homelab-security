@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # Wazuh SIEM Quick Deployment Script
-# Author: Latrent Childs
 # Date: November 19, 2025
 # Purpose: Automated Wazuh SIEM deployment for homelab security monitoring
 
@@ -9,7 +8,6 @@ set -e
 
 echo "═════════════════════════════════════════════════════════════"
 echo "  Wazuh SIEM Deployment for Homelab Security Monitoring"
-echo "  Author: Latrent Childs | Security+ Certified"
 echo "═════════════════════════════════════════════════════════════"
 echo ""
 

@@ -11,7 +11,7 @@ _meta:
 ## Demo users
 
 admin:
-  hash: "$2y$12$vtr95Nccd0o9fw8wrx92f.aCmxTtPnU9CadZbUqyWM3YbwRqa/P/u"
+  hash: "$2y$12$K/SpwjtB.wOHJ/Nc6GVRDuc1h0rM1DfvziFRNPtk27P.c4yDr9njO"
   reserved: true
   backend_roles:
   - "admin"

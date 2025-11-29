@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # Wazuh Agent Deployment Script for Unraid
-# Author: Latrent Childs
 # Purpose: Install Wazuh agent on Unraid OS (Slackware-based)
 
 set -e

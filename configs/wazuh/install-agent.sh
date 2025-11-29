@@ -1,7 +1,6 @@
 #!/bin/bash
 
 # Wazuh Agent Installation Script for Arch Linux
-# Author: Latrent Childs
 # Purpose: Install Wazuh agent to monitor host system
 
 set -e
@@ -13,7 +12,6 @@ NC='\033[0m'
 
 echo "═══════════════════════════════════════════════════════════"
 echo "  Wazuh Agent Installation for Arch Linux"
-echo "  Author: Latrent Childs | Security+ Certified"
 echo "═══════════════════════════════════════════════════════════"
 echo ""
 

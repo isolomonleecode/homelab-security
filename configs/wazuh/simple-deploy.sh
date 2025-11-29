@@ -1,14 +1,12 @@
 #!/bin/bash
 
 # Simplified Wazuh SIEM Deployment
-# Author: Latrent Childs
 # Uses official single-node deployment with pre-generated certificates
 
 set -e
 
 echo "═════════════════════════════════════════════════════════════"
 echo "  Wazuh SIEM - Simplified Deployment"
-echo "  Author: Latrent Childs | Security+ Certified"
 echo "═════════════════════════════════════════════════════════════"
 echo ""
 
