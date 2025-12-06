@@ -1,167 +1,203 @@
-# Homelab Security Hardening Project
+# Homelab Security Hardening
 
-**Author:** isolomonlee
-**Status:** In Progress
-**Certifications:** CompTIA Security+
-**Focus Areas:** Security Engineering, Infrastructure Security, Container Security
+[![Security](https://img.shields.io/badge/Security-Hardened-green.svg)](https://github.com/isolomonleecode/homelab-security-hardening)
+[![CompTIA](https://img.shields.io/badge/CompTIA-Security%2B-red.svg)](https://www.comptia.org/certifications/security)
+[![Docker](https://img.shields.io/badge/Docker-25%2B%20Containers-blue.svg)](https://www.docker.com/)
+[![Monitoring](https://img.shields.io/badge/Monitoring-Grafana%20%2B%20Wazuh-orange.svg)](https://grafana.com/)
 
-## Project Overview
+**Author:** isolomonlee | **Certifications:** CompTIA Security+
 
-This repository documents the systematic security audit, hardening, and monitoring implementation for a production homelab environment running 25+ containerized services, VMs, and network infrastructure.
+---
+
+## Overview
+
+Systematic security audit, hardening, and monitoring implementation for a production homelab environment running 25+ containerized services and VMs.
 
 **Objectives:**
-1. Conduct comprehensive security audit of existing infrastructure
-2. Implement defense-in-depth security controls
-3. Establish continuous monitoring and vulnerability management
-4. Document processes for portfolio demonstration and knowledge retention
-5. Apply Security+ and Network+ concepts in real-world scenarios
+- Comprehensive security audit of infrastructure
+- Defense-in-depth security controls
+- Continuous monitoring and vulnerability management
+- Security+ and Network+ concepts in practice
 
-## Infrastructure Scope
+---
 
-### Environment Details
+## Infrastructure
+
+### Environment
 - **Platform:** Unraid 6.x server
-- **Containerization:** Docker (25+ containers)
+- **Containers:** Docker (25+ services)
 - **Virtualization:** KVM/QEMU VMs
-- **Networking:** Tailscale VPN, Pi-hole DNS, Nginx reverse proxy
-- **Services:** Media servers, databases, web applications, monitoring tools
+- **Networking:** Tailscale VPN, Pi-hole DNS, Nginx proxy
+- **Monitoring:** Grafana, Prometheus, Wazuh, Alloy
 
-### Key Services Under Audit
-- Nextcloud AIO (file sync/share platform)
+### Key Services
+- Nextcloud AIO (file sync/share)
 - Jellyfin (media streaming)
 - Sonarr/Radarr/Lidarr (media automation)
-- Pi-hole (network-wide ad blocking & DNS)
+- Pi-hole (DNS & ad blocking)
 - PostgreSQL & MariaDB (databases)
 - Nginx Proxy Manager (reverse proxy)
-- Multiple *arr stack applications
+- Wazuh (SIEM & security monitoring)
 
-## Security Domains Covered
+---
 
-### 1. Asset Management & Inventory
-- Complete infrastructure documentation
-- Service mapping and dependency analysis
+## Security Implementation
+
+### 1. Asset Management
+- Complete infrastructure inventory
+- Service mapping and dependencies
 - Attack surface identification
 
 ### 2. Vulnerability Assessment
-- Container image scanning
+- Container image scanning (Trivy, Grype)
 - Configuration reviews
-- Exposed service enumeration
 - CVE tracking and remediation
 
-### 3. Access Control & Authentication
-- Privilege escalation prevention
-- Network segmentation
-- Certificate management
-- DNS security configuration
-
-### 4. Security Hardening
+### 3. Hardening
 - Container security best practices
 - Least privilege implementation
 - Secure configuration baselines
 - Secret management
 
-### 5. Monitoring & Detection
-- Log aggregation
-- Security event monitoring
+### 4. Monitoring & Detection
+- Grafana dashboards for security metrics
+- Wazuh SIEM integration
+- Log aggregation (Alloy)
 - Anomaly detection
 - Incident response preparation
 
-## Project Structure
+### 5. Network Security
+- Tailscale mesh VPN
+- Pi-hole DNS filtering
+- Network segmentation
+- Certificate management
+
+---
+
+## Repository Structure
 
 ```
 homelab-security-hardening/
-├── docs/                          # Documentation & findings
-│   ├── 01-infrastructure-inventory.md
-│   ├── 02-security-audit-findings.md
-│   ├── 03-pihole-dns-configuration.md
-│   ├── 04-container-hardening.md
-│   └── certification-concepts.md
-├── configs/                       # Configuration files
-│   ├── pihole/                    # Pi-hole DNS configs
-│   ├── docker/                    # Docker Compose & configs
-│   └── nginx/                     # Nginx reverse proxy configs
-├── scripts/                       # Automation scripts
+├── configs/                    # Configuration files
+│   ├── grafana/                 # Dashboards & datasources
+│   ├── wazuh/                   # SIEM configuration
+│   ├── pihole/                  # DNS configs
+│   ├── docker-compose/          # Service deployments
+│   └── promtail/                # Log collection
+├── scripts/                    # Automation scripts
 │   ├── security-scan.sh
 │   └── inventory.sh
-└── findings/                      # Security assessment results
+└── findings/                   # Assessment results
     └── vulnerability-reports/
 ```
 
-## Methodology
+---
 
-This project follows industry-standard security assessment practices:
+## Documentation
 
-1. **Reconnaissance & Inventory** - Document current state
-2. **Vulnerability Identification** - Automated & manual scanning
-3. **Risk Analysis** - Prioritize findings by severity
-4. **Remediation** - Implement security controls
-5. **Validation** - Verify fixes & document baselines
-6. **Continuous Monitoring** - Ongoing security posture tracking
+Full documentation is in the centralized vault:
+```
+/run/media/ssjlox/gamer/Documentation/Projects/homelab-security-hardening/
+```
+
+**Key Documentation:**
+- Infrastructure inventory & baseline
+- Security assessment findings
+- Hardening implementation guides
+- Monitoring & logging setup
+- Platform-specific guides (macOS, Windows, Linux)
+- Network & DNS configuration
+- Wazuh SIEM deployment
+
+See [INDEX.md](file:///run/media/ssjlox/gamer/Documentation/Projects/homelab-security-hardening/INDEX.md) for complete documentation index.
+
+---
 
 ## Skills Demonstrated
 
-**Technical Skills:**
-- Linux system administration & hardening
+**Technical:**
+- Linux system hardening
 - Docker container security
 - Network security architecture
-- PKI & certificate management
 - Vulnerability assessment & management
 - Security automation & scripting
-- Log analysis & SIEM concepts
+- SIEM deployment & management
+- Log analysis & monitoring
 
-**Security Frameworks & Standards:**
+**Frameworks & Standards:**
 - NIST Cybersecurity Framework
 - CIS Benchmarks (Docker, Linux)
 - Defense in Depth
 - Zero Trust principles
-- Least Privilege Access Control
 
-**Tools & Technologies:**
-- Docker & container security tools
-- Network security appliances (Pi-hole, nginx)
-- Vulnerability scanners (Trivy, Grype)
-- Git version control
-- Bash/Python scripting
-- Tailscale VPN mesh networking
-
-## Learning Objectives
-
-As part of my cybersecurity career development, this project reinforces:
-
-**Security+ Concepts:**
-- Domain 1: Attacks, Threats & Vulnerabilities
-- Domain 2: Architecture & Design
-- Domain 3: Implementation
-- Domain 4: Operations & Incident Response
-- Domain 5: Governance, Risk & Compliance
-
-**Network+ Concepts:**
-- Network segmentation & VLANs
-- DNS architecture & security
-- VPN technologies
-- Network monitoring & troubleshooting
-- OSI model application
-
-## Progress Tracking
-
-- [x] Project initialization & repository setup
-- [ ] Phase 1: Infrastructure inventory & baseline
-- [ ] Phase 2: Pi-hole DNS configuration for local services
-- [ ] Phase 3: Container vulnerability scanning
-- [ ] Phase 4: Security hardening implementation
-- [ ] Phase 5: Monitoring & logging deployment
-- [ ] Phase 6: Documentation & portfolio completion
-
-## Key Takeaways & Lessons Learned
-
-*This section will be updated as the project progresses*
-
-## Contact
-
-For questions about this project or to discuss security engineering opportunities:
-- GitHub: [@isolomonleecode](https://github.com/isolomonleecode)
+**Tools:**
+- Wazuh SIEM
+- Grafana & Prometheus
+- Docker security tools (Trivy, Grype)
+- Pi-hole DNS
+- Tailscale VPN
+- Alloy log collector
 
 ---
 
-**Disclaimer:** Much of the content was helped by an LLM. However, the passion, process, and commitment originates with me, an imperfect, effeciency-driven individual.
+## Monitoring Dashboards
 
-**Note:** This is a personal homelab environment. All security testing is conducted on systems I own and operate. No production systems or unauthorized access is involved.
+### Security Monitoring
+- Wazuh SIEM integration
+- Real-time security alerts
+- Vulnerability tracking
+- Compliance monitoring
+
+### Container Health
+- Container update monitoring
+- Resource utilization
+- Health check tracking
+- Automated alerts
+
+### Infrastructure Metrics
+- System performance
+- Network traffic analysis
+- Service availability
+- Log aggregation
+
+---
+
+## Methodology
+
+Industry-standard security assessment:
+
+1. **Reconnaissance** - Document current state
+2. **Vulnerability ID** - Automated & manual scanning
+3. **Risk Analysis** - Prioritize by severity
+4. **Remediation** - Implement controls
+5. **Validation** - Verify fixes
+6. **Monitoring** - Continuous posture tracking
+
+---
+
+## Learning Objectives
+
+**Security+ Domains:**
+- Attacks, Threats & Vulnerabilities
+- Architecture & Design
+- Implementation
+- Operations & Incident Response
+- Governance, Risk & Compliance
+
+**Network+ Concepts:**
+- Network segmentation
+- DNS architecture & security
+- VPN technologies
+- Network monitoring
+
+---
+
+## Contact
+
+GitHub: [@isolomonleecode](https://github.com/isolomonleecode)
+
+---
+
+**Disclaimer:** This is a personal homelab environment. All security testing is conducted on systems I own and operate.
+
+**Last Updated:** December 6, 2025

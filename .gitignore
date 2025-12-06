@@ -1,3 +1,17 @@
+# Obsidian
+.obsidian/
+*.obsidian
+
+# Documentation (stored in centralized vault)
+docs/
+
+# Config documentation with personal paths
+configs/wazuh/WAZUH-FRESH-INSTALL.md
+configs/wazuh/QUICKSTART.md
+configs/wazuh/TROUBLESHOOTING.md
+configs/wazuh/AGENT-DEPLOYMENT.md
+configs/n8n/WAZUH-INTEGRATION-GUIDE.md
+
 # Security Sensitive Files
 *.env
 *.key
@@ -53,10 +67,15 @@ env/
 # Node modules (if any JS tools used)
 node_modules/
 
-# Private notes
+# Private notes and reports (in vault)
 NOTES-PRIVATE.md
 TODO-PRIVATE.md
+HOME-SOC-COMPLETE-SUMMARY.md
+PORTFOLIO-SUMMARY.md
+PROGRESS.md
 container-updates-monitoring*.json
+*_REPORT.md
+VERIFICATION*.md
 
 # Personal information (do not commit)
 career/
