@@ -5,10 +5,7 @@
 # Documentation (stored in centralized vault)
 docs/
 
-# Configurations with environment-specific data (in vault)
-configs/
-
-# Security Sensitive Files
+# Security Sensitive Files (actual credentials, never commit)
 *.env
 *.key
 *.pem
@@ -25,6 +22,7 @@ secrets.yaml
 # Scan outputs (keep reports, ignore raw data)
 *.json.raw
 *.xml.raw
+scan-reports/
 
 # Temporary files
 *.tmp
@@ -73,18 +71,10 @@ container-updates-monitoring*.json
 *_REPORT.md
 VERIFICATION*.md
 
-# Directories with environment-specific data (in vault)
-scripts/
+# Private directories (in vault only)
 sessions/
 findings/
 AI/
-
-# Personal information (do not commit)
-career/
-*Resume.md
-*CoverLetter.md
-*personal*.md
-.claude/
 
 # Personal information (do not commit)
 career/
