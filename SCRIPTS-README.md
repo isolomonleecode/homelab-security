@@ -19,10 +19,7 @@ To protect privacy and make this repository portable, they've been relocated to 
 
 ## Where Are They Now?
 
-**Location:**
-```
-/run/media/ssjlox/gamer/Documentation/Projects/homelab-security-hardening/
-```
+**Location:** Centralized documentation vault (private, not on GitHub)
 
 **Directories moved:**
 - `configs/` - **ALL configuration files** (Grafana, Wazuh, Promtail, Pi-hole DNS, Caddy, etc.)
@@ -55,21 +52,14 @@ This repository now contains only **portable, shareable** content:
 3. Customize with your environment details
 4. No personal data to clean up!
 
-### For Original Author (ssjlox)
+### For Original Author
 
-All scripts and detailed documentation are in the vault:
-```bash
-cd /run/media/ssjlox/gamer/Documentation/Projects/homelab-security-hardening/
+All scripts and detailed documentation are in the private vault:
 
-# Access scripts
-ls scripts/
-
-# View session notes
-ls sessions/
-
-# Check findings
-ls findings/
-```
+- Scripts for deployment and automation
+- Session notes and troubleshooting docs
+- Security assessment findings
+- Complete configuration files
 
 ---
 
@@ -102,12 +92,7 @@ If you need scripts for your environment:
 
 ## Documentation
 
-Full deployment guides and tutorials are available in the centralized vault:
-```
-/run/media/ssjlox/gamer/Documentation/Projects/homelab-security-hardening/
-```
-
-See [INDEX.md](file:///run/media/ssjlox/gamer/Documentation/Projects/homelab-security-hardening/INDEX.md) for the complete documentation index.
+Full deployment guides and tutorials are available in the centralized documentation vault (private).
 
 ---
 

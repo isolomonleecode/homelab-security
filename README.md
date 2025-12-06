@@ -95,10 +95,7 @@ See [SCRIPTS-README.md](SCRIPTS-README.md) for vault location and details.
 
 ## Documentation
 
-Full documentation is in the centralized vault:
-```
-/run/media/ssjlox/gamer/Documentation/Projects/homelab-security-hardening/
-```
+Full documentation is maintained in a private centralized vault.
 
 **Key Documentation:**
 - Infrastructure inventory & baseline
@@ -108,8 +105,6 @@ Full documentation is in the centralized vault:
 - Platform-specific guides (macOS, Windows, Linux)
 - Network & DNS configuration
 - Wazuh SIEM deployment
-
-See [INDEX.md](file:///run/media/ssjlox/gamer/Documentation/Projects/homelab-security-hardening/INDEX.md) for complete documentation index.
 
 ---
 
