@@ -6,11 +6,12 @@
 
 ## Why Were They Moved?
 
-These directories contained personal/environment-specific information:
-- **Tailscale domains** (tailc12764.ts.net)
-- **IP addresses** (192.168.0.x, 100.x.x.x)
-- **Hostnames** (capcorp9000, unraid, etc.)
-- **Usernames** (ssjlox) and **file paths**
+These directories contained personal/environment-specific information such as:
+
+- **Tailscale domains** (example: `*.ts.net`)
+- **IP addresses** (example: `192.168.x.x`, `100.x.x.x`)
+- **Hostnames** (example: server names, device names)
+- **Usernames** and **file paths**
 - **Personal notes** and **troubleshooting sessions**
 
 To protect privacy and make this repository portable, they've been relocated to a private vault.
@@ -65,13 +66,7 @@ All scripts and detailed documentation are in the private vault:
 
 ## Config Files That Remain
 
-Configuration files in `configs/` have been sanitized or are templates:
-- **Docker Compose files** - Port mappings and service definitions (no secrets)
-- **Grafana dashboards** - JSON exports (no API keys)
-- **Prometheus configs** - Scrape targets as templates
-- **Promtail configs** - Log collection templates
-
-**Note:** Some configs still reference example hostnames like `capcorp9000` - these serve as placeholders showing the expected format.
+This repository is now completely clean - all configuration files with personal data have been removed and are maintained in the private vault only.
 
 ---
 
