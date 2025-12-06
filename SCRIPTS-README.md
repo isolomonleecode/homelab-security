@@ -1,15 +1,16 @@
-# Scripts and Environment-Specific Files
+# Environment-Specific Files Relocated
 
-**Scripts, session notes, and findings have been moved to the centralized documentation vault.**
+**All environment-specific files have been moved to the centralized documentation vault.**
 
 ---
 
 ## Why Were They Moved?
 
-These directories contained environment-specific information:
-- **Usernames** and **file paths**
-- **IP addresses** and **Tailscale domains**
-- **Hostnames** and **network configuration**
+These directories contained personal/environment-specific information:
+- **Tailscale domains** (tailc12764.ts.net)
+- **IP addresses** (192.168.0.x, 100.x.x.x)
+- **Hostnames** (capcorp9000, unraid, etc.)
+- **Usernames** (ssjlox) and **file paths**
 - **Personal notes** and **troubleshooting sessions**
 
 To protect privacy and make this repository portable, they've been relocated to a private vault.
@@ -24,6 +25,7 @@ To protect privacy and make this repository portable, they've been relocated to 
 ```
 
 **Directories moved:**
+- `configs/` - **ALL configuration files** (Grafana, Wazuh, Promtail, Pi-hole DNS, Caddy, etc.)
 - `scripts/` - Deployment and automation scripts (29 files)
 - `sessions/` - Session notes and troubleshooting docs (20+ files)
 - `findings/` - Security assessment findings

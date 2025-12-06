@@ -5,12 +5,8 @@
 # Documentation (stored in centralized vault)
 docs/
 
-# Config documentation with personal paths
-configs/wazuh/WAZUH-FRESH-INSTALL.md
-configs/wazuh/QUICKSTART.md
-configs/wazuh/TROUBLESHOOTING.md
-configs/wazuh/AGENT-DEPLOYMENT.md
-configs/n8n/WAZUH-INTEGRATION-GUIDE.md
+# Configurations with environment-specific data (in vault)
+configs/
 
 # Security Sensitive Files
 *.env

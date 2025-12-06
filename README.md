@@ -78,17 +78,18 @@ Systematic security audit, hardening, and monitoring implementation for a produc
 
 ```
 homelab-security-hardening/
-├── configs/                    # Configuration templates
-│   ├── grafana/                 # Dashboards & datasources
-│   ├── wazuh/                   # SIEM configuration
-│   ├── pihole/                  # DNS configs
-│   ├── docker-compose/          # Service deployments
-│   └── promtail/                # Log collection
-├── SCRIPTS-README.md           # Info about scripts location
+├── SCRIPTS-README.md           # Info about relocated files
 └── README.md                   # This file
 ```
 
-**Note:** Scripts, session notes, and findings are in the centralized vault (not in GitHub to protect privacy). See [SCRIPTS-README.md](SCRIPTS-README.md) for details.
+**Privacy Notice:** All environment-specific files have been moved to the centralized vault:
+- **configs/** - All configuration files (Tailscale domains, IPs, hostnames)
+- **scripts/** - Deployment and automation scripts
+- **sessions/** - Troubleshooting and session notes
+- **findings/** - Security assessment results
+- **AI/** - AI configurations
+
+See [SCRIPTS-README.md](SCRIPTS-README.md) for vault location and details.
 
 ---
 
