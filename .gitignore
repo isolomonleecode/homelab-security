@@ -77,6 +77,12 @@ container-updates-monitoring*.json
 *_REPORT.md
 VERIFICATION*.md
 
+# Directories with environment-specific data (in vault)
+scripts/
+sessions/
+findings/
+AI/
+
 # Personal information (do not commit)
 career/
 *Resume.md
