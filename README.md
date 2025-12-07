@@ -145,10 +145,39 @@ nano configs/n8n/deploy-n8n.sh
 
 ## 📖 Documentation
 
+### Security Assessment & Implementation
+
+**Complete security audit methodology and implementation guides:**
+
+1. [**Infrastructure Inventory**](docs/01-infrastructure-inventory.md)
+   - Asset discovery and classification
+   - Attack surface analysis
+   - Network architecture mapping
+   - Risk assessment baseline
+
+2. [**Vulnerability Assessment**](docs/02-vulnerability-assessment.md)
+   - Container image scanning (Trivy/Grype)
+   - Network security testing
+   - Configuration reviews
+   - CVE management & remediation tracking
+
+3. [**Hardening Implementation**](docs/03-hardening-implementation.md)
+   - Container security (capabilities, namespaces, resources)
+   - Network segmentation & firewall rules
+   - Authentication hardening (SSH, 2FA, secrets)
+   - SSL/TLS configuration
+   - Patch management automation
+
+4. [**Monitoring & Logging**](docs/04-monitoring-logging.md)
+   - Centralized logging (Loki + Promtail)
+   - SIEM deployment (Wazuh)
+   - Metrics collection (Prometheus)
+   - Grafana dashboards
+   - Automated alerting & SOAR
+
 ### Configuration Guides
 
 - [**Wazuh + n8n SOAR Integration**](configs/n8n/WAZUH-INTEGRATION-GUIDE.md) - Complete webhook setup, alert routing, automated playbooks
-- [**Grafana Dashboard Guide**](configs/grafana/README.md) - Dashboard import and customization
 - [**Scripts README**](scripts/README.md) - Usage guide for all automation scripts
 
 ### Monitoring Dashboards

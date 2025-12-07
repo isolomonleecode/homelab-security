@@ -2,9 +2,6 @@
 .obsidian/
 *.obsidian
 
-# Documentation (stored in centralized vault)
-docs/
-
 # Security Sensitive Files (actual credentials, never commit)
 *.env
 *.key
