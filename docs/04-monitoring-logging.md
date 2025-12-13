@@ -351,6 +351,79 @@ networks:
     external: true
 ```
 
+### Grafana SSO with Keycloak (OAuth2/OIDC)
+
+**Note:** Grafana Community Edition supports OAuth2/OIDC SSO natively (unlike n8n which requires Enterprise).
+
+#### Prerequisites
+
+- Keycloak running with realm configured
+- OAuth2 client created in Keycloak for Grafana
+
+#### Keycloak OAuth2 Client Setup
+
+**In Keycloak Admin Console:**
+
+1. Navigate to **Clients** → **Create client**
+2. Configure:
+   - **Client type:** OpenID Connect
+   - **Client ID:** `grafana`
+   - **Client authentication:** ON
+   - **Valid redirect URIs:** `http://YOUR_GRAFANA_IP:3000/*`
+   - **Web origins:** `http://YOUR_GRAFANA_IP:3000`
+3. Get **Client Secret** from Credentials tab
+
+#### Update Grafana Configuration
+
+**Add to docker-compose.yml environment:**
+
+```yaml
+services:
+  grafana:
+    image: grafana/grafana:latest
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=CHANGE_ME_SECURE_PASSWORD
+      - GF_USERS_ALLOW_SIGN_UP=false
+      - GF_SERVER_ROOT_URL=http://YOUR_GRAFANA_IP:3000
+
+      # OAuth2/OIDC Configuration (Keycloak)
+      - GF_AUTH_GENERIC_OAUTH_ENABLED=true
+      - GF_AUTH_GENERIC_OAUTH_NAME=Keycloak
+      - GF_AUTH_GENERIC_OAUTH_ALLOW_SIGN_UP=true
+      - GF_AUTH_GENERIC_OAUTH_CLIENT_ID=grafana
+      - GF_AUTH_GENERIC_OAUTH_CLIENT_SECRET=YOUR_CLIENT_SECRET
+      - GF_AUTH_GENERIC_OAUTH_SCOPES=openid email profile roles
+      - GF_AUTH_GENERIC_OAUTH_AUTH_URL=http://YOUR_KEYCLOAK_IP:8180/realms/YOUR_REALM/protocol/openid-connect/auth
+      - GF_AUTH_GENERIC_OAUTH_TOKEN_URL=http://YOUR_KEYCLOAK_IP:8180/realms/YOUR_REALM/protocol/openid-connect/token
+      - GF_AUTH_GENERIC_OAUTH_API_URL=http://YOUR_KEYCLOAK_IP:8180/realms/YOUR_REALM/protocol/openid-connect/userinfo
+      - GF_AUTH_GENERIC_OAUTH_SIGNOUT_REDIRECT_URL=http://YOUR_KEYCLOAK_IP:8180/realms/YOUR_REALM/protocol/openid-connect/logout
+      - GF_AUTH_GENERIC_OAUTH_ROLE_ATTRIBUTE_PATH=contains(roles[*], 'admin') && 'Admin' || contains(roles[*], 'editor') && 'Editor' || 'Viewer'
+      - GF_AUTH_GENERIC_OAUTH_EMAIL_ATTRIBUTE_PATH=email
+      - GF_AUTH_GENERIC_OAUTH_LOGIN_ATTRIBUTE_PATH=preferred_username
+      - GF_AUTH_GENERIC_OAUTH_NAME_ATTRIBUTE_PATH=name
+```
+
+#### Role Mapping
+
+**Create Keycloak Roles:**
+
+- `admin` → Grafana Admin
+- `editor` → Grafana Editor
+- `viewer` → Grafana Viewer (default)
+
+**Assign roles to users in Keycloak:**
+
+1. Go to **Users** → Select user → **Role mapping**
+2. Assign appropriate role
+
+#### Testing SSO
+
+1. Restart Grafana: `docker compose restart grafana`
+2. Navigate to Grafana login page
+3. Click **"Sign in with Keycloak"**
+4. Authenticate via Keycloak
+5. Verify proper role assignment
+
 ### Data Sources
 
 **Add Loki:**
